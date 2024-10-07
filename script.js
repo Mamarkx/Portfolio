@@ -72,3 +72,37 @@ darkModeIcon.onclick = () => {
     darkModeIcon.classList.toggle('bx-sun');
     document.body.classList.toggle('dark-mode');
 };
+
+
+const careerEl = document.querySelector(".career");
+
+const careers = ["Ryujin","Student", "Web Developer", "Software Engineer", "Full Stack"];
+
+let careerIndex = 0;
+let characterIndex = 0;
+
+function updateText() {
+    characterIndex++;
+    
+  
+    careerEl.innerHTML = `${careers[careerIndex].slice(0, characterIndex)}`;
+    
+    
+    if (characterIndex === careers[careerIndex].length) {
+        careerIndex++; 
+        characterIndex = 0; 
+        
+     
+        if (careerIndex === careers.length) {
+            careerIndex = 0;
+        }
+    }
+  
+    setTimeout(updateText, 225);
+}
+
+
+updateText();
+
+
+document.getElementById('current-year').textContent = new Date().getFullYear();
